@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dundies 2025 - Votación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+    button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dundies 2025</h1>
+  <form id="voteForm">
+    <label>Categoría:</label>
+    <select id="category" required>
+      <option value="Mejor Jefe">Mejor Jefe</option>
+      <option value="Mejor Compañero">Mejor Compañero</option>
+      <option value="Más Divertido">Más Divertido</option>
+      <option value="Mejor Equipo">Mejor Equipo</option>
+    </select>
+    <br>
+    <label>Opción:</label>
+    <input type="text" id="option" placeholder="Nombre del candidato" required>
+    <br>
+    <button type="submit">Votar</button>
+  </form>
+  <p id="message"></p>
+
+  <script>
+    document.getElementById("voteForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const category = document.getElementById("category").value;
+      const option = document.getElementById("option").value;
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbz0hF3LL8wcw6V3xJ_ivU2gJbhLdzR8lvHrx6tGdre_yfJbeE1I0TKlJj5bQ9MLH0_b4Q/exec";
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ category, option })
+        });
+
+        const data = await response.json();
+        document.getElementById("message").textContent = "¡Voto registrado!";
+        document.getElementById("voteForm").reset();
+      } catch (error) {
+        document.getElementById("message").textContent = "Error al enviar el voto.";
+      }
+    });
+  </script>
+</body>
+</html>
