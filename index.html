@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votación Premios Dundie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="sm.png" alt="Logo Santo Mauro" class="logo">
+        <h1>Votación Premios Dundie</h1>
+    </header>
+    <main>
+        <form id="voteForm">
+            <label for="category">Selecciona una categoría:</label>
+            <select id="category" name="category">
+                <option value="">-- Elige una categoría --</option>
+                <option>Premio al Xivat del año</option>
+                <option>Premio a la Maruja del año</option>
+                <option>Premio al más compañero del año</option>
+                <option>Premio al más Chino del año</option>
+                <option>Premio al Caganet del año</option>
+                <option>Premio al Lloros del año</option>
+                <option>Premio Robinson Crusoe del año</option>
+                <option>Premio le va la marcha del año</option>
+                <option>Premio al mejor peinado del año</option>
+                <option>Premio Houdini del año</option>
+                <option>El maestro del cuchillo del año</option>
+                <option>Premio tatemador del año</option>
+                <option>Premio Luffy el pirata del año</option>
+                <option>Premio al réinterprète de recetas del año</option>
+                <option>Premio al mejor cociner@/ Pasteler@ del año</option>
+            </select>
+
+            <label for="name">Selecciona el nombre del compañero:</label>
+            <select id="name" name="name">
+                <option value="">-- Elige un nombre --</option>
+                <option>Esther</option>
+                <option>Daniela</option>
+                <option>Gabo</option>
+                <option>Mario</option>
+                <option>Jacobo</option>
+                <option>Ricardo</option>
+                <option>Alberto</option>
+                <option>Elena</option>
+                <option>Sam</option>
+                <option>Chen</option>
+                <option>Miguel</option>
+                <option>Sole</option>
+                <option>Javitxu</option>
+                <option>Emanuele</option>
+            </select>
+
+            <button type="submit">Enviar voto</button>
+        </form>
+        <div id="message"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
